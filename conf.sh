@@ -39,5 +39,5 @@ make install-benchmark
 
 export HUGGING_FACE_HUB_TOKEN=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
 
-text-generation-launcher --model-id meta-llama/Llama-2-70b-chat-hf --port 8000 #&
+text-generation-launcher --model-id meta-llama/Llama-2-70b-chat --port 8000 #&
 #text-generation-benchmark --tokenizer-name meta-llama/Llama-2-70b-chat-hf
