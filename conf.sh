@@ -11,7 +11,7 @@ cd text-generation-inference
 # Installer Anaconda
 wget https://repo.anaconda.com/archive/Anaconda3-2023.09-0-Linux-x86_64.sh
 bash Anaconda3-2023.09-0-Linux-x86_64.sh -b -p $HOME/anaconda3
-eval "$(~/anaconda3/bin/conda shell.bash hook)"
+source $HOME/anaconda3/etc/profile.d/conda.sh  # Source conda.sh
 
 # Créer un environnement conda pour le projet
 conda create -n text-generation-inference python=3.9 -y
@@ -33,11 +33,7 @@ rm -f $PROTOC_ZIP
 # Installer les bibliothèques de développement SSL et les outils de compilation
 apt-get install libssl-dev gcc build-essential pkg-config -y
 
+#export HUGGING_FACE_HUB_TOKEN=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
 
-#! benchmark 
-make install-benchmark
-
-export HUGGING_FACE_HUB_TOKEN=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
-
-#text-generation-launcher --model-id meta-llama/Llama-2-70b-chat --port 8000 --sharded true --num_shard 3
+#text-generation-launcher --model-id meta-llama/Llama-2-70b-chat --port 8000 --sharded true --num-shard 3
 #text-generation-benchmark --tokenizer-name meta-llama/Llama-2-70b-chat-hf
