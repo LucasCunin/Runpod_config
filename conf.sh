@@ -46,6 +46,7 @@ rm -r text-generation-inference
 # build the benchmark binary:
 make install-benchmark
 
+text-generation-launcher --model-id mistralai/Mixtral-8x7B-v0.1 --port 3000 --master-port 8000 --sharded true --num-shard 2 --cuda-memory-fraction 0.8 
 #text-generation-launcher --model-id mistralai/Mixtral-8x7B-v0.1 --port 3000 --master-port 8000 --sharded true --num-shard 2 --cuda-memory-fraction
 
 #export HUGGING_FACE_HUB_TOKEN=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
