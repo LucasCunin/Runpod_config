@@ -33,6 +33,21 @@ rm -f $PROTOC_ZIP
 # Installer les bibliothèques de développement SSL et les outils de compilation
 apt-get install libssl-dev gcc build-essential pkg-config -y
 
+apt install rustc cargo
+
+# remove parts of the repo that this docker image already has, then put the rest in its proper place
+cd text-generation-inference
+rm -r proto
+rm -r server
+mv * ../
+cd ../
+rm -r text-generation-inference
+
+# build the benchmark binary:
+make install-benchmark
+
+#text-generation-launcher --model-id mistralai/Mixtral-8x7B-v0.1 --port 3000 --master-port 8000 --sharded true --num-shard 2 --cuda-memory-fraction
+
 #export HUGGING_FACE_HUB_TOKEN=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
 
 #text-generation-launcher --model-id meta-llama/Llama-2-70b-chat --port 8000 --sharded true --num-shard 3
